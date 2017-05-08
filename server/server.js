@@ -21,11 +21,11 @@ io.on('connection', (socket) => {
 
     socket.on('createMessage', (message) => {
         console.log('create message', message);
-    });
-    socket.emit('newMessage', {
-        from: 'Max',
-        text: "Test back",
-        createdAt: 123412
+        io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
     });
     socket.on('disconnect', () => {
         console.log('User was Disconnect');
