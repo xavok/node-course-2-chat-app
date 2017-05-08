@@ -1,12 +1,14 @@
 /**
  * Created by Xavok on 5/8/2017.
  */
+var moment = require('moment');
+
 const generateMessage = (from, text) => {
     "use strict";
     return {
         from,
         text,
-        createdAt: new Date().getTime()
+        createdAt: moment().valueOf()
     };
 };
 const generateLocationMessage = (from, latitude, longitude) => {
@@ -14,7 +16,7 @@ const generateLocationMessage = (from, latitude, longitude) => {
     return {
         from,
         url: `https://www.google.com/maps?q=${latitude},${longitude}`,
-        createdAt: new Date().getTime()
+        createdAt: moment().valueOf()
     };
 };
 
